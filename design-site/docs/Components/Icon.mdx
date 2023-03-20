@@ -1,0 +1,42 @@
+# Pipeline Icons
+
+Pipeline Icons includes over 300 tokens and 970+ Google Material Design icons. The icons are React components are Styled-Components that support Styled-System v5 props.
+
+Check out the searchable database of icons and their previews [Here!](../Demos/icons)
+
+
+## Import in app
+
+```jsx
+import { Icon } from '@pipeline-ui'; // imports all icons - bad for bundle size
+import { Algo } from '@pipeline-ui/icons'; // import single token icon
+import { MoneyOff } from '@pipeline-ui/icons'; // import single material design icon
+```
+
+### Examples
+
+import {Algo, Btc, Icon} from '@pipeline-ui/icons';
+
+<>
+  <Icon color="red" name="MoneyOff" size="80" />
+  <Algo color="black" size="80" />
+  <Btc color="gold" size="80" />
+</>
+
+```jsx
+import {Algo, Btc} from '@pipeline-ui/icons';
+import {Icon} from 'pipeline-ui';
+<>
+  <Icon color="red" name="MoneyOff" size="80" />
+  <Algo color="black" size="80" />
+  <Btc color="gold" size="80" />
+</>
+```
+
+
+```jsx live
+<>
+  <Icon color="red" name="MoneyOff" size="80" />
+</>
+```
+Icon uses COMMON, LAYOUT, POSITION, FLEXBOX, BORDERS groups of Styled System props.

@@ -1,0 +1,79 @@
+# Button
+
+Use the Button component when you want users to perform an action. It contains a label with an optional icon before or after the label. It maps to a `<button>` element and extends Box.
+
+import {Button, Flex} from 'pipeline-ui'
+
+## Usage Example
+
+```jsx live
+<Flex alignItems={"center"}>
+  <Button icon="Send" mr={3}>
+    Send
+  </Button>
+
+  <Button icon="Send" iconpos="right" mr={3}>
+    Send
+  </Button>
+
+  <Button icon="MoreHoriz" icononly />
+</Flex>
+```
+
+### Props
+
+import { Table } from 'pipeline-ui';
+
+<Table>
+  <thead>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td>bg</td><td>string (optional)</td><td>'silver'</td><td></td></tr>
+  <tr><td>border</td><td>string (optional)</td><td>'none'</td><td></td></tr>
+  <tr><td>color</td><td>string (optional)</td><td>'white'</td><td></td></tr>
+  <tr><td>contrastColor</td><td>string (optional)</td><td>'white'</td><td>Sets text color of button.</td></tr>
+  <tr><td>fontFamily</td><td>string (optional)</td><td>'sansSerif'</td><td>Sets font of button text.</td></tr>
+  <tr><td>fontSize</td><td>string (optional)</td><td>'inherit'</td><td>Sets font size.</td></tr>
+  <tr><td>fontWeight</td><td>integer (optional)</td><td>3</td><td>Sets font weight.</td></tr>
+  <tr><td>height</td><td>string (optional)</td><td>'3rem'</td><td></td></tr>
+  <tr><td>icon</td><td>string (optional)</td><td></td><td>Sets icon of button.</td></tr>
+  <tr><td>icononly</td><td>bool (optional)</td><td>false</td><td>Sets padding on button with icon and no text</td></tr>
+  <tr><td>iconpos</td><td>enum (optional)</td><td></td><td>Sets icon position on button. Allowed values: 'left' 'right'.</td></tr>
+  <tr><td>lineHeight</td><td>integer (optional)</td><td>1</td><td></td></tr>
+  <tr><td>mainColor</td><td>string (optional)</td><td>'primary'</td><td>Sets background color of button.</td></tr>
+  <tr><td>minWidth</td><td>string (optional)</td><td>'3rem'</td><td></td></tr>
+  <tr><td>position</td><td>string (optional)</td><td>'relative'</td><td></td></tr>
+  <tr><td>px</td><td>integer (optional)</td><td>4</td><td></td></tr>
+  <tr><td>py</td><td>integer (optional)</td><td>0</td><td></td></tr>
+  <tr><td>size</td><td>enum (optional)</td><td></td><td>Sets font and spacing size of button. Allowed values: 'small' 'medium' 'large'.</td></tr>
+  <tr><td>theme</td><td>object (optional)</td><td></td><td>Sets theme.</td></tr>
+    </tbody>
+    </Table>
+
+
+
+size
+enum
+(optional)
+Sets font and spacing size of button
+Allowed values: 'small' 'medium' 'large' .
+
+theme
+object
+(optional)
+Sets theme
+
+Styled System Props
+
+Button uses COMMON, LAYOUT, POSITION, FLEXBOX, BORDERS groups of Styled System props.
+
+
+
+
+

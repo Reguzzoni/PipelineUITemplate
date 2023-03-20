@@ -1,0 +1,55 @@
+---
+title: Getting Started
+sidebar_position: 1
+---
+
+Welcome to Pipeline UI, a library of standardized React components for the Algorand Ecosystem!
+
+:::info
+
+WalletConnect and AlgoSigner now supported in all Pipeline libraries!
+
+:::
+
+:::info
+
+Pipeline Class & Pipeline-UI now support ASA creation / NFT minting and smart contract deployment and interaction!
+
+:::
+
+### Install the library:
+
+```bash
+cd myNewApp
+npm install pipeline-ui
+```
+### Import components into your React project:
+
+```jsx
+import { AlgoButton, AlgoSendButton, Pipeline} from 'pipeline-ui';
+```
+
+:::caution
+
+All Pipeline UI libraries and demos execute transactions on the Algorand MainNet by default. To send transactions on the TestNet, check out [SwitchNet Component](./AlgoComponents/SwitchNet)
+
+:::
+
+### Modifying the library:
+
+If you wish to download and modify the library components via source code, run the following code to save it to your user root directory and install its dependencies:
+```bash
+git clone https://github.com/headline-design/pipeline-ui
+cd pipeline-ui
+npm install
+```
+
+You may then edit the components via the index.js file found inside each component folder in the parent folder /src. After saving changes, you must then run the following code from the pipeline-ui parent folder:
+```bash
+npm run build
+npm pack
+```
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<img alt="Docusaurus with Keytar" width="100%" height="400px" src={useBaseUrl('/img/pipeline_vectilla_10.svg')} />

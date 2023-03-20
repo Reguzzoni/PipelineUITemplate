@@ -1,0 +1,45 @@
+# Flash
+
+Use the Flash component for delivering important messages to your users while allowing them to continue interacting with the rest of the page. For example, you may want to let users know they're on the wrong network but allow them to continue browsing until they try to connect. The Flash renders a responsive box-model layout component. Inherits props from Box component.
+
+import {Flash} from 'pipeline-ui'
+
+## Usage example
+
+```jsx live
+<Flash my={3} variant="danger">
+  This is a primary alert with an
+  <Flash.Link> example link</Flash.Link>. Give it a click if you like.
+</Flash>
+```
+### Accessibility
+
+Critical and warning banners have a `role="alert"`
+All other banners have a `role="status"`
+Banner containers have a `tabindex="0"` and display a visible keyboard focus indicator.
+Banners use `aria-describedby` to describe their purpose to assistive technologies when they're announced or receive focus. All of the banner content is used for the `aria-describedby`.
+
+### Props
+
+import { Table } from 'pipeline-ui';
+
+<Table>
+  <thead>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td>border</td><td>string (optional)</td><td>'1'</td><td></td></tr>
+  <tr><td>borderRadius</td><td>integer (optional)</td><td>1</td><td></td></tr>
+  <tr><td>p</td><td>string (optional)</td><td>'3'</td><td></td></tr>
+  <tr><td>variant</td><td>enum (optional)</td><td>'base'</td><td>Sets the colors of the background, text and links. Allowed values: 'base' 'success' 'warning' 'danger' 'info'.</td></tr>
+  <tr><td>width</td><td>string (optional)</td><td>'100%'</td><td>Sets width.</td></tr>
+    </tbody>
+    </Table>
+
+<br></br>Flash uses COMMON, LAYOUT, POSITION, FLEXBOX, BORDERS groups of Styled System props.
+

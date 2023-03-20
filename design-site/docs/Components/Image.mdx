@@ -1,0 +1,40 @@
+# Image
+
+Use the Image component to display an image in your product. This renders the `<img>` HTML element and extends the Box component.
+
+import {Image} from 'pipeline-ui'
+
+## Usage Example
+
+```jsx live
+<Image
+  alt="Algorand"
+  borderRadius={8}
+  height="auto"
+  src="https://www.algorand.com/assets/media-kit/logos/full/png/algorand_full_logo_black.png"
+/>
+```
+
+### Props
+
+import { Table } from 'pipeline-ui';
+
+<Table>
+  <thead>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td>alt</td><td>string (optional)</td><td></td><td>Sets alt attribute on image for accessibility.</td></tr>
+  <tr><td>height</td><td>string (optional)</td><td>'auto'</td><td></td></tr>
+  <tr><td>maxWidth</td><td>string (optional)</td><td>'100%'</td><td></td></tr>
+  <tr><td>src</td><td>string (required)</td><td></td><td>Sets the src attribute of the img element.</td></tr>
+  <tr><td>theme</td><td>object (optional)</td><td></td><td>Sets theme.</td></tr>
+    </tbody>
+    </Table>
+
+<br></br>Image uses COMMON, LAYOUT, POSITION, FLEXBOX, BORDERS groups of Styled System props.

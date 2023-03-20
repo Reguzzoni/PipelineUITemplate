@@ -1,0 +1,33 @@
+# AsaList
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<img alt="Docusaurus with Keytar" width="100%" height="400px" src={useBaseUrl('/img/pipeline_vectilla_7.svg')} />
+
+
+An array of verified Algorand ASA's and index numbers that can be imported like a component and used to populate dropdown menus.
+
+import "regenerator-runtime/runtime.js";
+import {Select, AsaList,Text} from 'pipeline-ui'
+
+<Text>Select a Verified ASA:</Text><br/><Select options={AsaList}/>
+
+## Usage Example
+
+```jsx
+import {Select, AsaList,Text} from 'pipeline-ui'
+<Text >Select a Verified ASA:</Text>
+        <Select
+          defaultValue={this.state.value}
+          onChange={this.asaNumbChangeHandler}
+          options={AsaList}
+        />
+```
+In the above example, the OnChange event calls the function asaNumbChangeHandler, which can be seen below:
+
+```jsx
+asaNumbChangeHandler = (event) => {
+    this.setState({ asaNumb: event.value });
+
+  }
+```

@@ -1,0 +1,35 @@
+# QR
+
+Use the QR component to renders a QR code for a provided string. Can be used as a shortcut to input a public Algorand address or link to a specific website.
+
+import {QR} from 'pipeline-ui'
+
+## Usage Example
+
+```jsx live
+<QR value="LMKFQIPL3VQCZGGFK4WZ7FPCQWLNBTJQ3UWSTA7D7QZSPJTZQKTDVT7WG4" size={"25%"} />
+```
+
+### Props
+
+import { Table } from 'pipeline-ui';
+
+<Table>
+  <thead>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td>bgColor</td><td>string (optional)</td><td>'#FFFFFF'</td><td>Sets the background color</td></tr>
+  <tr><td>fgColor</td><td>string (optional)</td><td>'#000000'</td><td>Sets the foreground color</td></tr>
+  <tr><td>includeMargin</td><td>bool (optional)</td><td>false</td><td>Adds margin around the QR code</td></tr>
+  <tr><td>level</td><td>enum (optional)</td><td>'L'</td><td>Sets the amount of error correction. Allowed values: 'L' 'M' 'Q' 'H'.</td></tr>
+  <tr><td>renderAs</td><td>enum (optional)</td><td>'svg'</td><td>Changes the element that contains the QR code. Allowed values: 'canvas' 'svg'.</td></tr>
+  <tr><td>size</td><td>integer (optional)</td><td>128</td><td>Sets the height and width in pixels</td></tr>
+  <tr><td>value</td><td>string (required)</td><td></td><td>Sets the value of the QR code</td></tr>
+    </tbody>
+    </Table>

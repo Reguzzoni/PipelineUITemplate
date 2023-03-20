@@ -1,0 +1,65 @@
+# Table
+
+Table renders the `<table>` HTML element and inherits props from the Box component.
+
+import {Table} from 'pipeline-ui'
+
+## Usage Example
+
+```jsx live
+<Table>
+  <thead>
+    <tr>
+      <th>Transaction ID</th>
+      <th>Value</th>
+      <th>Recipient</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>K4D...FGE</td>
+      <td>0.10 Algo</td>
+      <td>ER6...JSD</td>
+      <td>July 31 2021 12:47:17 AM +UTC</td>
+    </tr>
+    <tr>
+      <td>S3G...230</td>
+      <td>0.11 Algo</td>
+      <td>4GJ...1E1</td>
+      <td>July 31 2021 12:52:17 AM +UTC</td>
+    </tr>
+    <tr>
+      <td>8H6...C40</td>
+      <td>0.12 Algo</td>
+      <td>6H6...93J</td>
+      <td>July 31 2021 12:55:17 AM +UTC</td>
+    </tr>
+  </tbody>
+</Table>
+```
+
+### Props
+
+<Table>
+  <thead>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td>border</td><td>integer (optional)</td><td>1</td><td></td></tr>
+  <tr><td>borderColor</td><td>string (optional)</td><td>'grey'</td><td></td></tr>
+  <tr><td>boxShadow</td><td>integer (optional)</td><td>1</td><td></td></tr>
+  <tr><td>color</td><td>string (optional)</td><td>'dark-gray'</td><td></td></tr>
+  <tr><td>fontFamily</td><td>string (optional)</td><td>'sansSerif'</td><td></td></tr>
+  <tr><td>fontSize</td><td>integer (optional)</td><td>1</td><td></td></tr>
+  <tr><td>fontWeight</td><td>integer (optional)</td><td>2</td><td></td></tr>
+  <tr><td>theme</td><td>object (optional)</td><td></td><td></td></tr>
+    </tbody>
+    </Table>
+
+<br></br>Table uses COMMON, LAYOUT, POSITION, FLEXBOX, BORDERS groups of Styled System props.

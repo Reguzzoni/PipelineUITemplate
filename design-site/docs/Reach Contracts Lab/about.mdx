@@ -1,0 +1,95 @@
+# Overview
+
+The Pipeline Reach Lab is an online tool to experiment with deploying and using TEAL (Transaction Execution Approval Lanuage) smart contracts that have been created with the Reach language.
+
+:::tip
+
+Check out the [VIDEO](../Videos) to see it in action!
+
+:::
+
+## Get started
+
+- • Select your net (for security reasons, the demo only allows the selection of testnet. You can enable mainnet by forking our github repository and adding MainNet to the network `<Select>` element)
+
+- • Navigate to your MyAlgo wallet and set your wallet to testnet using their dropdown menu.
+
+- • Fund your wallet via the link provided in the Demo
+
+- • Select either a Reach or TEAL contract using demo's the dropdown menus. 
+
+:::tip
+
+The demo's `log` window will only log messages provided by the Reach "frontend" code or transaction id's for TEAL-only deploys. We recommend that at this point the user open their browser console log by right-clicking on the screen, hitting `inspect` and selecting the `console` option.
+
+:::
+
+- • For all Reach contracts (except `Morra Game`), clicking `Deploy and Run Reach` will both deploy the smart contract and run the frontend and "backend" code associated with the Reach example, using your own connected addess to run the code for all participants.
+
+- • A key feature of our implementation of the `Morra Game` is to demonstrate how Reach code can be utilized without any RPC servers or backends needed. Identical code exists on all client machines and runs entirely client-side (with the exception of the smart contract), with participants merely inputing the app id of the Morra Game smart contract. 
+
+- • The Morra Game must be played with two seperate addresses (documented below)
+
+
+## Morra Game
+
+Selecting the `Reach Morra Game` will display a dropdown to select a role and an input for an app id.
+
+- • To run the game, 2 users load the demo on seperate machines and connect their seperate accounts. The user who will deploy the contract and act as participant `Alice` selects the `Deployer & Participant` role and clicks `Deploy & Run Reach`.
+
+- • Immediately after deploying the contract, `Alice` must locate the app id on AlgoExplorer and share it with user `Bob`.
+
+- • User `Bob` inputs the app id, selects the `Participant` role and clicks `Deploy & Run Reach`.
+
+- • At this point, the Reach code automatically generates the bets and guesses for both participants, only requiring that the transactions be signed in the MyAlgo popup windows.
+
+- • If the smart contract obverves a winner, the winner will receive the amount wagered by the loser.
+
+- • In the event of either a winner or timeout, the Reach code will automatically prompt user `Alice` to delete the app.
+
+## Adapting Reach Code
+
+The code examples provided in the ReachLang github examples folder can be utilized in serverless online apps via the following process: 
+
+- • Clone the repo and compile the Reach code following the instructions provided on the Reach doc site
+
+- • Copy the "backend" code from the created `build` folder and import it into your main JavaScript or React file (app.js or index.js)
+
+- • Copy the "frontend" code (index.mjs from parent folder) and paste or import it into your main file. 
+
+- • replace the following line wherever it occurs with a variable that contains an Algorand address as string:
+
+```jsx
+await stdlib.newTestAccount(startingBalance);
+```
+
+- • Locate the code that begins at: 
+
+```jsx
+await Promise.all([
+```
+
+- • Copy this entire block and rewrite it to conditionaly run only the segment corresponding to the role that the client selects. 
+
+- • Replace the `getInfo()` function call with `parseInt(appId)` and set `appId` to the id of the smart contract
+
+- • Replace `ldstdlib` call with:
+
+```jsx
+const stdlib = loadStdlib('ALGO')`
+```
+
+Finally, the following code must be run before the Reach frontend code:
+
+```jsx
+stdlib.setWalletFallback(stdlib.walletFallback({
+    providerEnv: net, MyAlgoConnect
+}));
+
+stdlib.getDefaultAccount().then(
+    response => {
+        acct = response.networkAccount.addr;
+    }
+)
+```
+

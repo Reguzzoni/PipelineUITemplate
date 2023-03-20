@@ -1,0 +1,104 @@
+# AlgoSendButton
+
+Clicking the AlgoSend button will open a new MyAlgo window prompting the user to confirm the transaction. 
+
+:::info
+
+The rendered AlgoSend button below is nonfunctional. To see it in action, check out the [Transaction Demo!](../Demos/transaction)
+
+:::
+
+:::caution
+
+The AlgoSend button executes transactions on the MainNet by default. To switch to TestNet, check out [SwitchNet Component](./SwitchNet)
+
+:::
+
+Upon confirmation, it returns the transaction id to the context and key specified. This component has the largest number of mandatory props. Failing to set them, or setting them incorrectly will result in a transaction not executing.
+
+import "regenerator-runtime/runtime.js";
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
+export const BrowserOnlyButton = (props) => {
+  return (
+    <BrowserOnly>{() => {
+      const AlgoSendButton = require('pipeline-ui').AlgoSendButton;
+      return <AlgoSendButton />;
+      }
+    }
+    </BrowserOnly>
+    );
+    };
+
+<BrowserOnlyButton />
+
+## Accessing returned txID
+
+The returned transaction ID can be accessed several different ways. Setting the `context` prop to `{this}` and the `returnTo` prop to a `state` key (as string) will return the txID directly to your parent component's state without the need for additional callback or event handler code. The txID can also be accessed with `Pipeline.txID`:
+
+```jsx
+componentDidMount() {
+      this.interval = setInterval(() => this.setState({txID: Pipeline.txID}), 1000);
+    }
+```
+
+or with an `onChange` handler:
+
+```jsx
+handleChange = (value) =>{
+    this.setState({txID: value})
+  }
+
+  render(){
+    return <AlgoSendButton 
+              onChange={this.handleChange} 
+              wallet={myAlgoWallet}
+              index={this.state.index}
+              recipient={this.state.recipient}
+              amount={this.state.amount}
+              note={this.state.note}
+            />
+  }
+```
+
+## Use Example
+```jsx
+import {AlgoButton, AlgoSendButton, Pipeline} from 'pipeline-ui'
+
+const myAlgoWallet = Pipeline.init();
+
+<AlgoSendButton
+      index={this.state.index}
+      recipient={this.state.recipient}
+      amount={this.state.amount}
+      note={this.state.note}
+      wallet={myAlgoWallet} 
+      context={this}
+      returnTo={"txID"}
+      />
+```
+
+### Props
+
+import {Table} from 'pipeline-ui';
+
+<Table>
+  <thead>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td>index</td><td>integer</td><td>0</td><td>If Algorand, must be 0. If ASA, must be numeric index value</td></tr>
+  <tr><td>recipient</td><td>string</td><td></td><td>Address of recipient</td></tr>
+  <tr><td>amount</td><td>integer</td><td>1</td><td>amount to send in micro Algos</td></tr>
+  <tr><td>note</td><td>string</td><td>"note"</td><td>Any data up to 1000 bytes.</td></tr>
+  <tr><td>wallet</td><td>reference</td><td></td><td>reference to an instance of Pipeline.init(); that is called ONCE when the app is initialized</td></tr>
+  <tr><td>context</td><td>reference</td><td></td><td>Recommended value: this</td></tr>
+  <tr><td>returnTo</td><td>string</td><td></td><td>string value of state key to return the transaction id</td></tr>
+  <tr><td>onChange</td><td>function</td><td></td><td>Enables callback (see example above)</td></tr>
+    </tbody>
+    </Table>

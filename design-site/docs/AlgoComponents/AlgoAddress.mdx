@@ -1,0 +1,34 @@
+# AlgoAddress
+
+A box component with an embedded button. Clicking on the button will generate a popup with a QR code and copy to clipboard option. 
+
+import {AlgoAddress} from 'pipeline-ui'
+
+<AlgoAddress address="LMKFQIPL3VQCZGGFK4WZ7FPCQWLNBTJQ3UWSTA7D7QZSPJTZQKTDVT7WG4"/>
+
+## Example usage
+
+```jsx
+<AlgoAddress address={this.state.myAddress}/>
+```
+
+### Props
+
+import {Table} from 'pipeline-ui'
+
+<Table>
+  <thead>
+  <tr>
+    <th>Prop</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td>address</td><td>string (required)</td><td></td><td>string value to generate QR code</td></tr>
+  <tr><td>textLabels</td><td>bool (optional)</td><td>false</td><td>Changes buttons to text from icons</td></tr>
+    </tbody>
+    </Table>
+
+<br></br>AlgoAddress uses COMMON, TYPOGRAPHY groups of Styled System props.
